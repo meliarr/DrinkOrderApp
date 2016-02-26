@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<title>C&C Drink Order App</title>
+		<script type="text/javascript" src="app.js"></script>
+		<link rel="stylesheet" type="text/css" href="main.css">
+	</head>
+	<body>
+		<!-- HEADER -->
+		<h1>Welcome to Coding & Cocktails!</h1>
+		<h2>Add your name to the attendee list below.</h2>
+
+		<!-- ATTENDEES -->
+		<form id="attendeeForm">
+		    <div class="none" id="AAK">
+		      <input type="radio" name="attendees" value="AAK">Ada Lovelace
+		    </div>
+		    <div class="none" id="GBH">
+		      <input type="radio" name="attendees" value="GBH">Grace Hopper
+		    </div>
+		    <div class="none" id="BJB">
+		      <input type="radio" name="attendees" value="BJB">Jean Bartik
+		    </div>
+		</form>
+
+		<!-- BUTTONS -->
+		<h4>Your drink is...</h4>
+		<button onclick="updateStatus('none')" class="none">None</button>
+		<button onclick="updateStatus('queued')" class="queued">Queued</button>
+		<button onclick="updateStatus('ready')" class="ready">Ready</button>
+	</body>
+</html>

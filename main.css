@@ -1,0 +1,11 @@
+.none { 
+	color: gray; 
+}
+
+.queued { 
+	color: orange; 
+}
+
+.ready { 
+	color: green; 
+}
