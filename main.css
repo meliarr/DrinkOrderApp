@@ -9,3 +9,7 @@
 .ready { 
 	color: green; 
 }
+
+#attendeeDetails {
+	background-color: lightgray;
+}
