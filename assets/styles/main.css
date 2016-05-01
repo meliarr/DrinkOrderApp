@@ -28,11 +28,28 @@ img {
 	padding-right: 20px;
 }
 
-#orderDetails {
+.bx-wrapper .bx-viewport {
+	background: #666b8f;   
+	border: none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+
+.bx-viewport ul {
+  margin: 0;
+  padding: 0;
+}
+
+#order-details {
 	margin: 20px 0;
 	padding: 2px;
 	background-color: #9d81a2;
 	min-height: 50px;	
+}
+
+.highlight {
+	background-color: green;
 }
 
 .btn-toggle {

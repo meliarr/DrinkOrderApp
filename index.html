@@ -3,9 +3,17 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Coding & Cocktails Drink Order App</title>
+
 		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		<!-- bxSlider CSS file -->
+		<link href="assets/lib/jquery.bxslider/jquery.bxslider.css" rel="stylesheet" />
 		<link rel="stylesheet" type="text/css" href="assets/styles/main.css">
+
+		<script src="assets/lib/jquery-1.12.3.min.js"></script>
+		<!-- bxSlider Javascript file -->
+		<script src="assets/lib/jquery.bxslider/jquery.bxslider.min.js"></script>
+		<script src="assets/scripts/my-scripts.js"></script>
 	</head>
 	<body>
 		<!-- NAVBAR -->
@@ -25,7 +33,14 @@
 			<div class="container">
 				<h1 class="text-center">Welcome to Coding &amp; Cocktails!</h1>
 				<img src="assets/images/cocktails_small.png"></img>
-				<div class="text-center" id="orderDetails"></div>
+
+				<ul class="bxslider">
+				  <li><img src="assets/images/Cocktail.png" title="Strong Lady"/></li>
+				  <li><img src="assets/images/cocktail-list.png" title="Cocktail Ingredients"/></li>
+				  <li><img src="assets/images/preparation.png" title="Yum!"/></li>
+				  <li><img src="assets/images/ingredients.png" title="Cocktail Ingredients"/></li>
+				</ul>
+				<div class="text-center" id="order-details"></div>
 			</div>
 		</div>
 
@@ -33,44 +48,44 @@
 		<div class="row" id="menu-section">
 			<div class="container text-center">
 				<div class="center-block">
-					<button class="btn btn-default btn-toggle">Show Menu</button>
-					<button class="btn btn-default btn-toggle">Hide Menu</button>
+					<button class="btn btn-default btn-toggle" id="show-menu-btn">Show Menu</button>
+					<button class="btn btn-default btn-toggle" id="hide-menu-btn">Hide Menu</button>
 				</div>
 			</div>
 			<div id="menu">
 				<div>
 					<h2 class="text-center">Menu</h2>
-					<div class="input-group">
-						<label class="checkbox">
-						  <input type="checkbox" value="">
+					<div class="input-group checkbox-group">
+						<label class="checkbox" id="focusedLady">
+						  <input type="checkbox" value="focusedLady">
 						  Focused Lady
 						</label>
-						<label class="checkbox">
-						  <input type="checkbox" value="">
+						<label class="checkbox" id="strongLady">
+						  <input type="checkbox" value="strongLady">
 						  Strong Lady
 						</label>
-						<label class="checkbox">
-						  <input type="checkbox" value="">
+						<label class="checkbox" id="frontEndPunch">
+						  <input type="checkbox" value="frontEndPunch">
 						  Front-End Punch
 						</label>
-						<label class="checkbox">
-						  <input type="checkbox" value="">
+						<label class="checkbox" id="cachedOut">
+						  <input type="checkbox" value="cachedOut">
 						  Cached Out
 						</label>
-						<label class="checkbox">
-						  <input type="checkbox" value="">
+						<label class="checkbox" id="httPapaya">
+						  <input type="checkbox" value="httPapaya">
 						  httPAPAYA://
 						</label>
-						<label class="checkbox">
-						  <input type="checkbox" value="">
+						<label class="checkbox" id="nerdyDaiquiri">
+						  <input type="checkbox" value="nerdyDaiquiri">
 						  Nerdy Daiquiri
 						</label>
-						<label class="checkbox">
-						  <input type="checkbox" value="">
+						<label class="checkbox" id="theAvernaCode">
+						  <input type="checkbox" value="theAvernaCode">
 						  The Averna Code
 						</label>
-						<label class="checkbox">
-						  <input type="checkbox" value="">
+						<label class="checkbox" id="focusedTheMostest">
+						  <input type="checkbox" value="focusedTheMostest">
 						  Focused the Mostest
 						</label>
 					</div>
@@ -83,22 +98,22 @@
 			<div class="container">
 			<h2 class="text-center">Add your name to the attendee list below.</h2>
 				<div class="input-group">
-					<label class="radio">
-					  <input type="radio" value="">
+					<label class="radio" id="adaLovelace">
+					  <input type="radio" name="attendee" value="Ada Lovelace">
 					  Ada Lovelace
 					</label>
-					<label class="radio">
-					  <input type="radio" value="">
+					<label class="radio" id="graceHopper">
+					  <input type="radio" name="attendee" value="Grace Hopper">
 					  Grace Hopper
 					</label>
-					<label class="radio">
-					  <input type="radio" value="">
+					<label class="radio" id="jeanBartik">
+					  <input type="radio" name="attendee" value="Jean Bartik">
 					  Jean Bartik
 					</label>
 				</div>
 			</div>
 			<!-- BUTTONS -->
-			<button class="btn btn-default center-block btn-order">Order</button>
+			<button class="btn btn-default center-block btn-order" id="order-btn">Order</button>
 			<!-- <h4>Your drink is...</h4>
 			<button onclick="updateStatus('none')" class="none">None</button>
 			<button onclick="updateStatus('queued')" class="queued">Queued</button>
