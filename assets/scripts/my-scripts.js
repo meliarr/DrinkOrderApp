@@ -55,22 +55,16 @@ var submitOrder = function() {
   console.log(orderName);
   var drinkName = $("label[for='" + $("input[type='radio']:checked").attr("id") + "']").text();
   
-  // only add the order if a name has been entered
-  if (orderName) {
-    // only add orders if there is room left on the order queue
-    if (orderCount <= 5) {
-      // add order display
-      $("#order-details").append("<h1>" + orderName + " would like a " + drinkName + "</h1>");
+  // only add orders if there is room left on the order queue
+  if (orderCount <= 5) {
+    // add order display
+    $("#order-details").append("<h1>" + orderName + " would like a " + drinkName + "</h1>");
 
-      // update drink order count
-      $('#drink-count').html("Drinks Ordered: " + orderCount);
-    }
-    else {
-      alert('Drink order queue is full.  Please try ordering again in a few minutes.');
-    }
+    // update drink order count
+    $('#drink-count').html("Drinks Ordered: " + orderCount);
   }
-  else { // if orderName has no value trigger an alert
-    alert('Oops! Please enter your name to order your drink.');
+  else {
+    alert('Drink order queue is full.  Please try ordering again in a few minutes.');
   }
 };
 
