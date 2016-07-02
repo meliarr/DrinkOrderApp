@@ -60,12 +60,13 @@ img {
 	margin: 0 auto;
 }
 
-#menu {
-	display: none;
+#order-form {
+	width: 40%;
+	margin: 20px auto;
 }
 
 .btn-order {
-	margin: 40px auto;
+	margin: 20px auto;
 }
 
 #about {

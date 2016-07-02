@@ -1,3 +1,9 @@
+//initialize order count
+var orderCount = 0;
+
+/* array of drink objects
+   each object has a value key with a camelCase drink name value 
+   and a label key with the display text for the drink */
 var cocktails = [
   {
     'value': 'focusedLady',
@@ -33,52 +39,48 @@ var cocktails = [
   },
 ];
 
+// loadMenu function to add the drinks from the array to the page
 var loadMenu = function() {
   for (var i = 0; i < cocktails.length; i++) {
     $('.checkbox-group').append(
-      '<label class="checkbox" id="' + cocktails[i].value + '"><input type="checkbox" value="' + cocktails[i].value + '">' + cocktails[i].label + '</label>'
+      '<label class="radio" for="' + cocktails[i].value + '"><input type="radio" id="' + cocktails[i].value + '" name="drink" value="' + cocktails[i].value + '">' + cocktails[i].label + '</label>'
     );
   }
 };
 
-//get drinks-data via ajax?
+// submitOrder function that increments orderCount, gathers and displays order details.
+var submitOrder = function() {
+  orderCount++;
+  var orderName = $("#order-form-input").val();
+  console.log(orderName);
+  var drinkName = $("label[for='" + $("input[type='radio']:checked").attr("id") + "']").text();
+  
+  // only add the order if a name has been entered
+  if (orderName) {
+    // only add orders if there is room left on the order queue
+    if (orderCount <= 5) {
+      // add order display
+      $("#order-details").append("<h1>" + orderName + " would like a " + drinkName + "</h1>");
 
-$(document).ready(function() {
-  loadMenu();
-
-	$('.bxslider').bxSlider({
-	  mode: 'vertical',
-	  captions: true,
-	  slideWidth: 500
-	});
-
-	$('#show-menu-btn').click(function () {
-    $('#menu').show();
-  });
-
-  $('#hide-menu-btn').click(function () {
-    $('#menu').hide();
-  });
-
-  //CSS highlight class can be found in assets/styles/main.css
-  $('input[type="checkbox"]').click(function(){
-    $(this).parent().toggleClass('highlight'); 
-  });
-
-  $('#order-btn').click(function() {
-    var orderName = $("input:radio:checked").val();
-    if (orderName) {
-      $('#order-details').html("<h1>" + orderName + "'s order is ready!</h1>");
+      // update drink order count
+      $('#drink-count').html("Drinks Ordered: " + orderCount);
     }
     else {
-      alert('Oops! Please select your name to order your drink.');
+      alert('Drink order queue is full.  Please try ordering again in a few minutes.');
     }
-  });
-});
-
-var submitOrder = function() {
-  var orderName = $("input:radio:checked").val();
-  $('#order-details').html("<h1>" + orderName + "'s order is ready!</h1>");
+  }
+  else { // if orderName has no value trigger an alert
+    alert('Oops! Please enter your name to order your drink.');
+  }
 };
 
-// 'Thank you, '+ name + ' for ordering ' + drinks + '. We'll let you know when your drink(s) is/are ready!'
+
+$(document).ready(function() {
+  // call loadMenu function
+  loadMenu();
+
+  $('#order-btn').click(function() {
+    // call submitOrder function when order button is clicked
+    submitOrder();
+  });
+});
