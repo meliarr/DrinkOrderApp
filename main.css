@@ -1,11 +1,17 @@
-.none { 
-	color: gray; 
+.none {
+	color: #ffffff;
+	background-color: #9d81a2;
+	padding: 7px;
 }
 
-.queued { 
-	color: orange; 
+.queued {
+	color: orange;
+	background-color: #9d81a2;
+	padding: 7px;
 }
 
-.ready { 
-	color: green; 
+.ready {
+	color: #40E0D0;
+	background-color: #9d81a2;
+	padding: 7px;
 }
