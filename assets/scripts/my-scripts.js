@@ -1,11 +1,11 @@
 $(document).ready(function() {
-	$('.bxslider').bxSlider({
-	  mode: 'vertical',
-	  captions: true,
-	  slideWidth: 500
-	});
+  $('.bxslider').bxSlider({
+    mode: 'vertical',
+    captions: true,
+    slideWidth: 500
+  });
 
-	$('#show-menu-btn').click(function () {
+  $('#show-menu-btn').click(function () {
     $('#menu').show();
   });
 
