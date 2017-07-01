@@ -5,14 +5,10 @@
 		<title>Coding &amp; Cocktails Drink Order App</title>
 
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-		<!-- bxSlider CSS file -->
-		<link href="assets/lib/jquery.bxslider/jquery.bxslider.min.css" rel="stylesheet" />
 		<link rel="stylesheet" type="text/css" href="assets/styles/main.css">
 
 		<script src="https://use.fontawesome.com/28322a6135.js"></script>
 		<script src="assets/lib/jquery-3.2.1.min.js"></script>
-		<!-- bxSlider Javascript file -->
-		<script src="assets/lib/jquery.bxslider/jquery.bxslider.min.js"></script>
 		<script src="assets/scripts/my-scripts.js"></script>
 	</head>
 	<body>
@@ -31,61 +27,50 @@
 		<!-- HEADER -->
 		<div class="row">
 			<div class="container">
-				<h1 class="text-center">Welcome to Coding &amp; Cocktails!</h1>
 				<img src="assets/images/cocktails_small.png"></img>
+				<h1 class="text-center">Welcome to Coding &amp; Cocktails!</h1>
+				<h2 class="text-center" id="drink-count">Drinks Ordered: 0</h2>
 
-				<ul class="bxslider">
-				  <li><img src="assets/images/Cocktail.png" title="Strong Lady"/></li>
-				  <li><img src="assets/images/cocktail-list.png" title="Cocktail List"/></li>
-				  <li><img src="assets/images/preparation.png" title="Yum!"/></li>
-				  <li><img src="assets/images/ingredients.png" title="Cocktail Ingredients"/></li>
-				</ul>
 				<div class="text-center" id="order-details"></div>
 			</div>
 		</div>
 
 		<!-- MENU -->
 		<div class="row" id="menu-section">
-			<div class="container text-center">
-				<div class="center-block">
-					<button class="btn btn-default btn-toggle" id="show-menu-btn">Show Menu</button>
-					<button class="btn btn-default btn-toggle" id="hide-menu-btn">Hide Menu</button>
-				</div>
-			</div>
 			<div id="menu">
 				<div>
 					<h2 class="text-center">Menu</h2>
-					<div class="input-group checkbox-group">
-						<label class="checkbox" id="focusedLady">
-						  <input type="checkbox" value="focusedLady">
+					<div class="input-group radio-group">
+						<label class="radio" for="focusedLady">
+						  <input type="radio" id="focusedLady" name="drink" value="Focused Lady">
 						  Focused Lady
 						</label>
-						<label class="checkbox" id="strongLady">
-						  <input type="checkbox" value="strongLady">
+						<label class="radio" for="strongLady">
+						  <input type="radio" id="strongLady" name="drink" value="Strong Lady">
 						  Strong Lady
 						</label>
-						<label class="checkbox" id="frontEndPunch">
-						  <input type="checkbox" value="frontEndPunch">
+						<label class="radio" for="frontEndPunch">
+						  <input type="radio" id="frontEndPunch" name="drink" value="Front-End Punch">
 						  Front-End Punch
 						</label>
-						<label class="checkbox" id="cachedOut">
-						  <input type="checkbox" value="cachedOut">
+						<label class="radio" for="cachedOut">
+						  <input type="radio" id="cachedOut" name="drink" value="Cached Out">
 						  Cached Out
 						</label>
-						<label class="checkbox" id="httPapaya">
-						  <input type="checkbox" value="httPapaya">
+						<label class="radio" for="httPapaya">
+						  <input type="radio" id="httPapaya" name="drink" value="httPAPAYA://">
 						  httPAPAYA://
 						</label>
-						<label class="checkbox" id="nerdyDaiquiri">
-						  <input type="checkbox" value="nerdyDaiquiri">
+						<label class="radio" for="nerdyDaiquiri">
+						  <input type="radio" id="nerdyDaiquiri" name="drink" value="Nerdy Daiquiri">
 						  Nerdy Daiquiri
 						</label>
-						<label class="checkbox" id="theAvernaCode">
-						  <input type="checkbox" value="theAvernaCode">
+						<label class="radio" for="theAvernaCode">
+						  <input type="radio" id="theAvernaCode" name="drink" value="The Averna Code">
 						  The Averna Code
 						</label>
-						<label class="checkbox" id="focusedTheMostest">
-						  <input type="checkbox" value="focusedTheMostest">
+						<label class="radio" for="focusedTheMostest">
+						  <input type="radio" id="focusedTheMostest" name="drink" value="Focused the Mostest">
 						  Focused the Mostest
 						</label>
 					</div>
@@ -95,29 +80,12 @@
 
 		<!-- ATTENDEES -->
 		<div class="row">
-			<div class="container">
-			<h2 class="text-center">Add your name to the attendee list below.</h2>
-				<div class="input-group">
-					<label class="radio" id="adaLovelace">
-					  <input type="radio" name="attendee" value="Ada Lovelace">
-					  Ada Lovelace
-					</label>
-					<label class="radio" id="graceHopper">
-					  <input type="radio" name="attendee" value="Grace Hopper">
-					  Grace Hopper
-					</label>
-					<label class="radio" id="jeanBartik">
-					  <input type="radio" name="attendee" value="Jean Bartik">
-					  Jean Bartik
-					</label>
-				</div>
+			<div class="container" id="order-form">
+				<label for="order-form-input">Enter your name:</label>
+				<input type="text" class="form-control" id="order-form-input" placeholder="Ada Lovelace">
 			</div>
 			<!-- BUTTONS -->
 			<button class="btn btn-default center-block btn-order" id="order-btn">Order</button>
-			<!-- <h4>Your drink is...</h4>
-			<button onclick="updateStatus('none')" class="none">None</button>
-			<button onclick="updateStatus('queued')" class="queued">Queued</button>
-			<button onclick="updateStatus('ready')" class="ready">Ready</button> -->
 		</div>
 
 		<!-- About -->

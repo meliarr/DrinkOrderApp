@@ -18,7 +18,6 @@
 */
 
 $(document).ready(function() {
-	$('.bxslider').bxSlider();
 
   $('#order-btn').click(function() {
     // call submitOrder function when order button is clicked (Worksheet Part 1: Call the Function, Step 1)
