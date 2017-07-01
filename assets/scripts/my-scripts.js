@@ -1,5 +1,44 @@
 // Initialize orderCount variable to 0 (Worksheet Part 1: Count Orders Step 1
 var orderCount = 0;
+var cocktails = [
+	{
+    'id': 'focusedLady',
+    'label': 'Focused Lady'
+  },
+  {
+    'id': 'strongLady',
+    'label': 'Strong Lady'
+  },
+  {
+    'id': 'frontEndPunch',
+    'label': 'Front-End Punch'
+  },
+  {
+    'id': 'cachedOut',
+    'label': 'Cached Out'
+  },
+  {
+    'id': 'httPapaya',
+    'label': 'httPAPAYA://'
+  },
+  {
+    'id': 'nerdyDaiquiri',
+    'label': 'Nerdy Daiquiri'
+  },
+  {
+    'id': 'theAvernaCode',
+    'label': 'The Averna Code'
+  },
+  {
+    'id': 'focusedTheMostest',
+    'label': 'Focused the Mostest'
+  },
+];
+var loadMenu = function () {
+	for (var i = 0; i < cocktails.length; i++) {
+		$('.radio-group').append('<label class="radio" for="' + cocktails[i].id + '"><input type="radio" id="' + cocktails[i].id + '" name="drink" value="' + cocktails[i].label + '">' + cocktails[i].label + '</label>');
+	};
+};
 
 /**
 * submitOrder Function
@@ -32,6 +71,7 @@ var updateOrderCount = function (count) {
 };
 
 $(document).ready(function() {
+	loadMenu();
 
   $('#order-btn').click(function() {
     // call submitOrder function when order button is clicked (Worksheet Part 1: Call the Function, Step 1)
