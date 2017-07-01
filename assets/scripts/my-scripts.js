@@ -1,29 +1,25 @@
-// initialize order count (Worksheet Part 1: Step 9a)
+// Initialize orderCount variable to 0 (Worksheet Part 1: Count Orders Step 1
 
-/* array of drink objects (Worksheet Part 2: Step 1)
-   each object has a value key with a camelCase drink name value 
-   and a label key with the display text for the drink */
+/**
+* submitOrder Function
+*
+* Increment orderCount, gather and display order details.
+* The code from the Worksheet Part 1 Submit an Order Step 2 should go on the line just below the comment close.
+*/
 
-// loadMenu function to add the drinks from the array to the page (Worksheet Part 2: Step 2)
+  // add order display (Worksheet Part 1: Alerts, Step 2)
 
-
-/* submitOrder function that increments orderCount, gathers and displays order details.
-   (Worksheet Part 1: Step 3) */
-  
-  // only add orders if there is room left on the order queue (Worksheet Part 1: Step 9g)
-
-  // add order display (Worksheet Part 1: Step 7)
-
-  // call funciton to update drink order count (Worksheet Part 1: Step 9e)
-
-
-// updateOrderCount function with a parameter passed to it (Worksheet Part 1: Step 9c)
-
+/**
+* updateOrderCount Function
+*
+* Displays number of drinks currently in the order queue.
+* @param {number} count - counter for orders
+* The code from the Worksheet Part 1: Count Orders, Step 4 should go on the line just below the comment close.
+*/
 
 $(document).ready(function() {
-  // call loadMenu function (Worksheet Part 2: Step 2d)
 
   $('#order-btn').click(function() {
-    // call submitOrder function when order button is clicked (Worksheet Part 1: Step 5b)
+    // call submitOrder function when order button is clicked (Worksheet Part 1: Call the Function, Step 1)
   });
 });
