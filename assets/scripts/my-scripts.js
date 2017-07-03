@@ -52,6 +52,7 @@ var submitOrder = function () {
 	console.log(orderName);
 	var drinkName = $("input[type='radio']:checked").val();
 	if(orderCount <= 5) {
+    fetchGifByOrderName(orderName);
 		$("#order-details").append("<h1>" + orderName + " would like a " + drinkName + "</h1>");
 	} else {
 		alert("Drink order queue is full. Please try ordering again in a few minutes.");
@@ -68,6 +69,24 @@ var submitOrder = function () {
 */
 var updateOrderCount = function (count) {
 	$('#drink-count').html("Drinks Ordered: " + count);
+};
+
+
+var fetchGifByOrderName = function (orderName) {
+	var url = `https://api.giphy.com/v1/gifs/random?tag=${orderName}&api_key=75af32d089554f9a9daaac3f290e58fb`;
+	fetch(url) // URL of API
+		.then(function(response) {
+			// Code for processing data response from API to desired data format
+      return response.json();
+    })
+    .then(function(response) {
+      // Code for using the data we formatted
+      console.log(response);
+    })
+    .catch(function(error) {
+      // Code to run if API returns an error
+      console.log(error);
+    });
 };
 
 $(document).ready(function() {
