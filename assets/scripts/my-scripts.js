@@ -34,9 +34,9 @@ var cocktails = [{
   },
 ];
 var loadMenu = function () {
-	for (var i = 0; i < cocktails.length; i++) {
-		$('.radio-group').append('<label class="radio" for="' + cocktails[i].id + '"><input type="radio" id="' + cocktails[i].id + '" name="drink" value="' + cocktails[i].label + '">' + cocktails[i].label + '</label>');
-	};
+  for (var i = 0; i < cocktails.length; i++) {
+  $('.radio-group').append('<label class="radio" for="' + cocktails[i].id + '"><input type="radio" id="' + cocktails[i].id + '" name="drink" value="' + cocktails[i].label + '">' + cocktails[i].label + '</label>');
+  };
 };
 
 /**
@@ -46,17 +46,17 @@ var loadMenu = function () {
 * The code from the Worksheet Part 1 Submit an Order Step 2 should go on the line just below the comment close.
 */
 var submitOrder = function () {
-	orderCount++;
-	var orderName = $("#order-form-input").val();
-	console.log(orderName);
-	var drinkName = $("input[type='radio']:checked").val();
-	if(orderCount <= 5) {
-    		fetchGifByOrderName(orderName);
-		$("#order-details").append("<h1>" + orderName + " would like a " + drinkName + "</h1>");
-	} else {
-		alert("Drink order queue is full. Please try ordering again in a few minutes.");
-	}
-	updateOrderCount(orderCount);
+  orderCount++;
+  var orderName = $("#order-form-input").val();
+  console.log(orderName);
+  var drinkName = $("input[type='radio']:checked").val();
+  if(orderCount <= 5) {
+    fetchGifByOrderName(orderName);
+    $("#order-details").append("<h1>" + orderName + " would like a " + drinkName + "</h1>");
+  } else {
+    alert("Drink order queue is full. Please try ordering again in a few minutes.");
+  }
+  updateOrderCount(orderCount);
 };
 
 /**
@@ -67,32 +67,41 @@ var submitOrder = function () {
 * The code from the Worksheet Part 1: Count Orders, Step 4 should go on the line just below the comment close.
 */
 var updateOrderCount = function (count) {
-	$('#drink-count').html("Drinks Ordered: " + count);
+  $('#drink-count').html("Drinks Ordered: " + count);
 };
 
-
 var fetchGifByOrderName = function (orderName) {
-	var url = `https://api.giphy.com/v1/gifs/random?tag=${orderName}&api_key=75af32d089554f9a9daaac3f290e58fb`;
-	fetch(url) // URL of API
-		.then(function(response) {
-			// Code for processing data response from API to desired data format
-      			return response.json();
-    		})
-    		.then(function(response) {
-      			// Code for using the data we formatted
-      			console.log(response);
-    		})
-    		.catch(function(error) {
-      			// Code to run if API returns an error
-      			console.log(error);
-    		});
+  var url = `https://api.giphy.com/v1/gifs/random?tag=${orderName}&api_key=75af32d089554f9a9daaac3f290e58fb`;
+  fetch(url) // URL of API
+    .then(function(response) {
+      // Code for processing data response from API to desired data format
+      return response.json();
+    })
+    .then(function(response) {
+      // Code for using the data we formatted
+      console.log(response);
+      addImageMarkup(response);
+    })
+    .catch(function(error) {
+      // Code to run if API returns an error
+      console.log(error);
+    });
+};
+
+var addImageMarkup = function (response) {
+  var imageMarkup = `
+    <div class="order-name-gif">
+      <img src="${response.data.image_url}" alt="${response.data.caption}" title="${response.data.caption}" />
+    </div>
+  `;
+  $('#order-details').append(imageMarkup);
 };
 
 $(document).ready(function() {
-	loadMenu();
+  loadMenu();
 
-	$('#order-btn').click(function() {
-		// call submitOrder function when order button is clicked (Worksheet Part 1: Call the Function, Step 1)
-		submitOrder();
-	});
+  $('#order-btn').click(function() {
+  // call submitOrder function when order button is clicked (Worksheet Part 1: Call the Function, Step 1)
+  submitOrder();
+  });
 });
