@@ -50,13 +50,17 @@ var submitOrder = function () {
   var orderName = $("#order-form-input").val();
   console.log(orderName);
   var drinkName = $("input[type='radio']:checked").val();
-  if(orderCount <= 5) {
-    fetchGifByOrderName(orderName);
-    $("#order-details").append("<h1>" + orderName + " would like a " + drinkName + "</h1>");
+  if(orderName) {
+    if(orderCount <= 5) {
+      fetchGifByOrderName(orderName);
+      $("#order-details").append("<h1>" + orderName + " would like a " + drinkName + "</h1>");
+      updateOrderCount(orderCount);
+    } else {
+      alert("Drink order queue is full. Please try ordering again in a few minutes.");
+    };
   } else {
-    alert("Drink order queue is full. Please try ordering again in a few minutes.");
-  }
-  updateOrderCount(orderCount);
+    alert("Oops! Please enter your name to order your drink.");
+  };
 };
 
 /**
