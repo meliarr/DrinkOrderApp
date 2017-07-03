@@ -1,7 +1,6 @@
 // Initialize orderCount variable to 0 (Worksheet Part 1: Count Orders Step 1
 var orderCount = 0;
-var cocktails = [
-	{
+var cocktails = [{
     'id': 'focusedLady',
     'label': 'Focused Lady'
   },
@@ -52,7 +51,7 @@ var submitOrder = function () {
 	console.log(orderName);
 	var drinkName = $("input[type='radio']:checked").val();
 	if(orderCount <= 5) {
-    fetchGifByOrderName(orderName);
+    		fetchGifByOrderName(orderName);
 		$("#order-details").append("<h1>" + orderName + " would like a " + drinkName + "</h1>");
 	} else {
 		alert("Drink order queue is full. Please try ordering again in a few minutes.");
@@ -77,23 +76,23 @@ var fetchGifByOrderName = function (orderName) {
 	fetch(url) // URL of API
 		.then(function(response) {
 			// Code for processing data response from API to desired data format
-      return response.json();
-    })
-    .then(function(response) {
-      // Code for using the data we formatted
-      console.log(response);
-    })
-    .catch(function(error) {
-      // Code to run if API returns an error
-      console.log(error);
-    });
+      			return response.json();
+    		})
+    		.then(function(response) {
+      			// Code for using the data we formatted
+      			console.log(response);
+    		})
+    		.catch(function(error) {
+      			// Code to run if API returns an error
+      			console.log(error);
+    		});
 };
 
 $(document).ready(function() {
 	loadMenu();
 
-  $('#order-btn').click(function() {
-    // call submitOrder function when order button is clicked (Worksheet Part 1: Call the Function, Step 1)
+	$('#order-btn').click(function() {
+		// call submitOrder function when order button is clicked (Worksheet Part 1: Call the Function, Step 1)
 		submitOrder();
-  });
+	});
 });
