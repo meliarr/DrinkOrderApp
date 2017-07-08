@@ -1,11 +1,15 @@
-.none { 
-	color: gray; 
+body {
+	background-color: #666b8f;
 }
 
-.queued { 
-	color: orange; 
+.none {
+	color: gray;
 }
 
-.ready { 
-	color: green; 
+.queued {
+	color: orange;
+}
+
+.ready {
+	color: green;
 }
